@@ -1,0 +1,45 @@
+$primary_color: #6b87e6;
+.search-bar {
+  font-family: "NotoSans-Regular";
+  font-size: 14px;
+  &__title {
+    font-family: "NotoSans-Bold";
+    color: #6b87e6;
+    text-transform: uppercase;
+  }
+  &__boxBtnFilter {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  &__BtnFilter,
+  &__BtnHeader {
+    font-family: "NotoSans-Bold";
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    .anticon {
+      display: flex;
+      align-items: center;
+      margin-left: 10px;
+    }
+  }
+  @media screen and(max-width: 320px) {
+    &__BtnHeader {
+      margin-top: 10px;
+    }
+  }
+  .filter {
+    margin-top: 10px;
+  }
+  .btn_col {
+    display: flex;
+    align-items: center;
+  }
+  .btn_clearFilter {
+    margin-left: 15px;
+    padding: 0 25px;
+  }
+}
+

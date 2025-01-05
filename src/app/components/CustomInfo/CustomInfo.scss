@@ -1,0 +1,12 @@
+.custom-info-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-family: "Montserrat-Bold";
+  align-items: center;
+  color: #5673d6;
+  .tooltip-info {
+    margin-left: 10px;
+  }
+}
+

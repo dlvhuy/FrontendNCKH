@@ -1,0 +1,32 @@
+.delete-confim-children {
+  font-family: "NotoSans-Regular";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 3% 5%;
+  .delete-confim-title {
+    font-family: "NotoSans-Bold";
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+  .delete-confim-body {
+    text-align: center;
+    font-size: 14px;
+    line-height: 21px;
+  }
+  .delete-confim-btn{
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  .delete-confim-btnConfim{
+    width: 100%;
+    background-color: #ffefef !important;
+    color: red !important;
+    border: 0 !important;
+    padding: 0 17px !important;
+  }
+}
+

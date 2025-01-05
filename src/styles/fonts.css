@@ -1,0 +1,28 @@
+
+@font-face {
+  font-family: SVN-PoppinsBold;
+  src: url('../assets/fonts/SVN-Poppins Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: NotoSans-Bold;
+  src: url('../assets/fonts/Noto_Sans/NotoSans-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: NotoSans-Regular;
+  src: url('../assets/fonts/Noto_Sans/NotoSans-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: Montserrat-Bold;
+  src: url('../assets/fonts/Montserrat/Montserrat-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: Montserrat-Regular;
+  src: url('../assets/fonts/Montserrat/Montserrat-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: Montserrat;
+  src: url('../assets/fonts/Montserrat/Montserrat.ttf') format('truetype');
+}

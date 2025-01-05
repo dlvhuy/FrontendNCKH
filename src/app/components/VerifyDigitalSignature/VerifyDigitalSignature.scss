@@ -1,0 +1,45 @@
+.signature-verify-container {
+  padding: 0 15px;
+  @media screen and(max-width: 667px) {
+    padding: 0px;
+  }
+  .noti-or {
+    margin-bottom: 8px;
+    margin-top: -8px;
+
+    @media screen and(max-width: 667px) {
+      margin: 0px;
+    }
+    display: flex;
+    flex-direction: row;
+    .div_hr {
+      flex: 1;
+      align-items: center;
+    }
+    .or {
+      margin: 0 20px;
+    }
+  }
+  .ant-form-item-label {
+    font-family: "NotoSans-Regular";
+  }
+  .ant-modal-title {
+    font-family: "NotoSans-Bold";
+  }
+  .inp_large {
+    padding-top: 7px;
+    padding-bottom: 7px;
+  }
+  .btn_actions {
+    display: flex;
+    justify-content: center;
+    font-family: "NotoSans-Bold";
+  }
+  .btn_cancel {
+    margin-right: 15px;
+    color: #ff811e;
+    background-color: #ffe9d8;
+    border: 0 !important;
+  }
+}
+

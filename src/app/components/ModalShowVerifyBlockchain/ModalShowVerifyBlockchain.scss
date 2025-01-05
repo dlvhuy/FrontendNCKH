@@ -1,0 +1,28 @@
+.modal-show-blockchain {
+  .ant-steps-item-content {
+    padding-bottom: 20px;
+  }
+  .ant-steps-item-title{
+    font-family: "NotoSans-Bold";
+    font-size: 16px;
+  }
+  .ant-steps-item-description{
+    font-family: "NotoSans-Regular";
+    font-size: 14px;
+  }
+  .ant-steps-item-active {
+    .ant-steps-item-container {
+      .ant-steps-item-title {
+        color: #5673d6;
+      }
+    }
+  }
+  .description{
+    display: flex;
+    flex-direction: column;
+  }
+  .aBlod{
+    font-family: "NotoSans-Bold";
+  }
+}
+

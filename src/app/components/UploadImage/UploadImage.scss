@@ -1,0 +1,12 @@
+.upload-image-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  .image-show {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+

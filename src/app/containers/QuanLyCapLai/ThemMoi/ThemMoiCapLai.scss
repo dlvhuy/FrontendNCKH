@@ -1,0 +1,52 @@
+.ThemMoiCapLai-Container {
+  .title-left {
+    color: #6b87e6;
+    font-family: "Montserrat-Bold";
+    text-transform: uppercase;
+  }
+  .title {
+    display: flex;
+    flex-direction: row;
+    font-family: "Montserrat-Bold";
+    justify-content: space-between;
+  }
+  .button-edit {
+    margin-right: 10px;
+  }
+}
+.ThemMoiCapLai-parent {
+  .input-code {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+  }
+}
+.code-title {
+  width: 90%;
+  align-items: center;
+}
+.form-code {
+  .ant-form-item-required {
+    font-family: "Montserrat-Bold";
+    color: #5673d6;
+  }
+}
+.icon-left {
+  margin-right: 10px;
+}
+.ThemMoiCapLai-content {
+  margin-top: 10px;
+}
+.div-caplai-btn-submit {
+  font-family: "Montserrat-Bold";
+  display: flex;
+  justify-content: center;
+}
+.show-more-land-cap-lai {
+  margin-bottom: 30px;
+  font-family: "Montserrat-Bold";
+  color: #6b87e6;
+  font-size: 16px;
+}
+
+
