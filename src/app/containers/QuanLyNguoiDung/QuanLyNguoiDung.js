@@ -27,7 +27,6 @@ function QuanLyNguoiDung({ isLoading, ...props }) {
   const [dataDialog, setDataDialog] = useState(null);
   const [visibleXoa, setVisibleXoa] = useState(false);
   const [dataXoa, setDataXoa] = useState(null);
-  const [dataOrg, setDataOrg] = useState([]);
   useEffect(() => {
     getDataFilter();
   }, [location.search]);
@@ -42,18 +41,6 @@ function QuanLyNguoiDung({ isLoading, ...props }) {
     queryStr += `${search.phone ? "&phone[like]={0}".format(search.phone) : ""}`;
     queryStr += `${search.org ? "&org={0}".format(search.org) : ""}`;
     // queryStr += `${search.active ? "&active={0}".format(search.active) : ""}`;
-    const getOrg = await getAllDonVi(1, 0, "");
-    if (getOrg) {
-      const options = getOrg?.docs?.map((value) => {
-        return {
-          value: value._id,
-          label: value.name,
-          type: value.type,
-          id: value._id,
-        };
-      });
-      setDataOrg(options);
-    }
     const apiResponse = await getAllUser(page, limit, queryStr);
     if (apiResponse) {
       const dataRes = apiResponse.docs;
@@ -134,7 +121,7 @@ function QuanLyNguoiDung({ isLoading, ...props }) {
         return (
           <>
             {SEARCH_ROLE_SYSTEM.map((res, index) => (
-              res?.value === value && (
+              res?.value === value?.role && (
                 <div key={index}>
                   {res?.name}
                 </div>
@@ -247,7 +234,6 @@ function QuanLyNguoiDung({ isLoading, ...props }) {
         onCancel={closeDialog}
         data={dataDialog}
         reloadAPI={getDataFilter}
-        orgType={dataOrg}
       />
       <DialogDeleteConfim visible={visibleXoa} onCancel={cancelXoa} onOK={handleRemove} />
     </>

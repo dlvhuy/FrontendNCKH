@@ -558,11 +558,13 @@ export const COMMON_FILE_NAME_EXTENSION = ["doc", "docx", "odt", "pdf", "xls", "
 
 export const IMAGE_FILE_EXTENSION = ["jpg", "jpeg", "png", "svg"];
 export const ROLE_SYSTEM = {
-  staff: "staff",
-  departmentStaff: "departmentStaff",
-  department: 'department'
+  STAFF: "staff",
+  ADMIN: "admin",
+  DEPARTMENTSTAFF: "departmentStaff",
+  DEPARTMENT: 'department'
 };
 export const SEARCH_ROLE_SYSTEM = [
+  { name: "Admin hệ thống", value: "admin" },
   { name: "Nhân viên phòng đảm bảo chất lượng và khảo thí", value: "staff" },
   { name: "Trưởng phòng đảm bảo chất lượng và khảo thí", value: "departmentStaff" },
   { name: "Hiệu trưởng", value: "department" },

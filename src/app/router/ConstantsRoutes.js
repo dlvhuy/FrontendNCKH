@@ -62,13 +62,13 @@ export const ADMIN_ROUTES = [
     key: URL.MENU.QUAN_LY_NGUOI_DUNG,
     menuName: "Người dùng",
     icon: renderIcon(<UserIcon />),
-    permission: [ROLE_SYSTEM.SYSTEM],
+    permission: [ROLE_SYSTEM.ADMIN],
     children: [
       {
         path: URL.MENU.USER,
         menuName: "Quản lý người dùng",
         component: QuanLyNguoiDung,
-        permission: [ROLE_SYSTEM.SYSTEM],
+        permission: [ROLE_SYSTEM.ADMIN],
       },
       {
         path: URL.MENU.KHOI_PHUC_TAI_KHOAN,
@@ -130,6 +130,7 @@ export const ADMIN_ROUTES = [
   //   component: ThemMoiThemMoiGiayTo,
   //   permission: [ROLE_SYSTEM.USER],
   // },
+
  
 ];
 

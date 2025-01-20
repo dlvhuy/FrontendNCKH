@@ -13,8 +13,7 @@ import { checkPermission } from "@app/rbac/checkPermission";
 import "@src/app/common/prototype";
 
 function Routes({ token, myInfo, ...props }) {
-  const { org } = myInfo;
-
+  const { role } = myInfo;
   const CONSTANTS_ROUTES = ConstantsRoutes();
 
   useEffect(() => {
@@ -28,7 +27,7 @@ function Routes({ token, myInfo, ...props }) {
 
     let routeReturn = [];
     if (path) {
-      if (checkPermission(org, permission)) {
+      if (checkPermission(myInfo?.role, permission)) {
         routeReturn = [...routeReturn, <Route exact path={path} component={component} key={path} />];
         routeReturn = [...routeReturn, ...renderSubItem(children)];
       }

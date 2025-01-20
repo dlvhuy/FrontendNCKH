@@ -26,11 +26,9 @@ function MyInfo({ myInfo, isLoading, roleList, ...props }) {
   React.useEffect(() => {
     if (myInfo) {
       const dataField = cloneObj(myInfo);
-      dataField.org = myInfo.org.name;
-      if (myInfo.org.type == ROLE_SYSTEM.SYSTEM) dataField.type = "Quản trị hệ thống";
-      else if (myInfo.org.type == ROLE_SYSTEM.USER) dataField.type = "Người dùng";
-      else if (myInfo.org.type == ROLE_SYSTEM.DEPARTMENT) dataField.type = "Sở tài nguyên và môi trưởng / UBND";
-      else dataField.type = myInfo.org.type;
+      if (myInfo.role === ROLE_SYSTEM.DEPARTMENT) dataField.type = "Hiệu trưởng";
+      else if (myInfo.role === ROLE_SYSTEM.DEPARTMENTSTAFF) dataField.type = "Trưởng phòng ĐBCL & KT";
+      else if (myInfo.role === ROLE_SYSTEM.STAFF) dataField.type = "Nhân viên phòng ĐBCL & KT";
       formInfo.setFieldsValue(dataField);
       if (avatarTemp) setAvatarTemp(null);
     }
@@ -130,15 +128,7 @@ function MyInfo({ myInfo, isLoading, roleList, ...props }) {
                         type={CONSTANTS.TEXT}
                         disabled={true}
                       />
-                      <CustomSkeleton
-                        size="default"
-                        label="Vai trò"
-                        name="org"
-                        labelCol={{ xs: 8 }}
-                        layoutCol={{ xs: 24 }}
-                        type={CONSTANTS.TEXT}
-                        disabled={true}
-                      />
+                      
                     </Row>
                   </Form>
                 </Col>

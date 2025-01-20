@@ -12,17 +12,21 @@ ThemMoiNguoiDung.propTypes = {};
 
 function ThemMoiNguoiDung({ visible, onCancel, reloadAPI, data, isLoading }) {
   const [form] = Form.useForm();
-  const [orgSub, setOrgSub] = useState([]);
+
+  useEffect(() => {
+    if (visible) {
+
+      form.setFieldsValue({ id: data?._id, ...data });
+    }
+  }, [visible])
   const cancelForm = () => {
     form.resetFields();
     onCancel();
   };
-  useEffect(() => {
-    getOrgSub();
-  }, []);
   const submitForm = async (e) => {
+
+
     if (!e.id) {
-      delete e.id;
       const response = await createUser(e);
       if (response) {
         toast(CONSTANTS.SUCCESS, TOAST_MESSAGE.USER.CREATE_NEW);
@@ -42,10 +46,7 @@ function ThemMoiNguoiDung({ visible, onCancel, reloadAPI, data, isLoading }) {
       }
     }
   };
-  const getOrgSub = async () => {
-    const response = await getAllDonVi(1, 0, "&type={0}".format(ROLE_SYSTEM.DEPARTMENT));
-    setOrgSub(response.docs);
-  };
+
   return (
     <div>
       <Modal
@@ -138,14 +139,14 @@ function ThemMoiNguoiDung({ visible, onCancel, reloadAPI, data, isLoading }) {
               <Select placeholder="Vui lòng chọn Vai trò">
                 {CREATE_ORG_ROLE_SYSTEM.map((res, index) => {
                   return (
-                    <Select.Option key={index} value={res.value}>
-                      {res.name}
+                    <Select.Option key={res?.value} value={res?.value}>
+                      {res?.name}
                     </Select.Option>
                   );
                 })}
               </Select>
             </Form.Item>
-            
+
             <div className="btn-handle">
               <Button className="btn-cancel-custom btn-cl" onClick={cancelForm}>
                 Huỷ thao tác

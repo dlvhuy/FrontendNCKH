@@ -56,7 +56,7 @@ function CustomMenu({ siderCollapsed, isBroken, myInfo, locationPathCode, ...pro
   }, [pathnameFormat]);
 
   function handleCheckPermission(permissionGranted, path) {
-    return checkPermission(org, path);
+    return checkPermission(myInfo?.role, path);
   }
 
   function handleActiveMenuForComponentDetail(menu) {
@@ -79,7 +79,7 @@ function CustomMenu({ siderCollapsed, isBroken, myInfo, locationPathCode, ...pro
     
     handleActiveMenuForComponentDetail(menu);
     if (menu.hide || !menu.menuName) return;
-    let hasPermission = checkPermission(org, menu.permission);
+    let hasPermission = checkPermission(myInfo?.role, menu.permission);
     if (!hasPermission) return;
     return (
       <Menu.Item key={menu.path} icon={menu.icon}>
@@ -99,12 +99,12 @@ function CustomMenu({ siderCollapsed, isBroken, myInfo, locationPathCode, ...pro
 
   function renderSubItem(menu) {
     if (menu.hide) return;
-    let hasPermission = checkPermission(org, menu.permission);
+    let hasPermission = checkPermission(myInfo?.role, menu.permission);
     if (menu.key) {
       hasPermission = false;
       let subMenuHasPermission = 0;
       menu.children.forEach((sub) => {
-        if (!sub.hide && checkPermission(org, menu.permission)) {
+        if (!sub.hide && checkPermission(myInfo?.role, menu.permission)) {
           subMenuHasPermission += 1;
         }
       });
