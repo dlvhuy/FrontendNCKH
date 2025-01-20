@@ -558,32 +558,19 @@ export const COMMON_FILE_NAME_EXTENSION = ["doc", "docx", "odt", "pdf", "xls", "
 
 export const IMAGE_FILE_EXTENSION = ["jpg", "jpeg", "png", "svg"];
 export const ROLE_SYSTEM = {
-  SYSTEM: "system",
-  DEPARTMENT: "department",
-  USER: "user",
-  LANDOFFICER: "landofficer", //Cán bộ địa chính
-  VICEPRESIDENTCITY: "vicepresidentcity", //Phó chủ tịch thành phố
-  PRESIDENTWARD: "phuong", // Phó chủ tịch phường
-  LANDREGISTRATION: "landregistration", // Văn phòng đăng ký đất đại
+  staff: "staff",
+  departmentStaff: "departmentStaff",
+  department: 'department'
 };
 export const SEARCH_ROLE_SYSTEM = [
-  { name: "Quản trị hệ thống", value: "system" },
-  { name: "Người dùng", value: "user" },
-  { name: "Cán bộ địa chính", value: "landofficer" },
-  { name: "Phó chủ tịch thành phố", value: "vicepresidentcity" },
-  { name: "Chủ tịch phường", value: "phuong" },
-  { name: "Văn phòng đăng ký đất đai", value: "landregistration" },
-  { name: "Trưởng phòng STN/MT", value: "department" },
+  { name: "Nhân viên phòng đảm bảo chất lượng và khảo thí", value: "staff" },
+  { name: "Trưởng phòng đảm bảo chất lượng và khảo thí", value: "departmentStaff" },
+  { name: "Hiệu trưởng", value: "department" },
 ];
 export const CREATE_ORG_ROLE_SYSTEM = [
-  { name: "Quản trị hệ thống", value: "system" },
-  { name: "Người dùng", value: "user" },
-  { name: "Phường", value: "phuong" },
-  { name: "Sở", value: "so" },
-  { name: "Cán bộ địa chính", value: "landofficer" },
-  { name: "Văn phòng đăng ký đất đai", value: "landregistration" },
-  { name: "Phó chủ tịch thành phố", value: "vicepresidentcity" },
-  { name: "Thành phố", value: "city" },
+  { name: "Nhân viên phòng đảm bảo chất lượng và khảo thí", value: "staff" },
+  { name: "Trưởng phòng đảm bảo chất lượng và khảo thí", value: "departmentStaff" },
+  { name: "Hiệu trưởng", value: "department" },
 ];
 export const TYPE_IMAGE_CAP_MOI = {
   ANH_KHU_DAT: "anh-khu-dat",
@@ -591,32 +578,5 @@ export const TYPE_IMAGE_CAP_MOI = {
   CHUNG_TU_NGHIA_VU_TAI_CHINH: "chung-tu-nghia-vu-tai-chinh",
   HOP_DONG: "hop-dong",
   OTHER: "other",
-};
-
-export const SEARCH_STATUS_THAM_DINH = [
-  { name: "Đã được thẩm định", value: "accepted" },
-  { name: "Chờ thẩm định", value: "pending" },
-  { name: "Từ chối thẩm định", value: "reject" },
-];
-export const VI_STATUS_THAM_DINH = {
-  accepted: "Đã thẩm định",
-  pending: "Chờ thẩm định",
-  sending: "Đang gửi thẩm định",
-  reject: "Từ chối thẩm định",
-};
-export const TYPE_IMAGE_CAP_LAI = {
-  ANH_KHU_DAT: "anh-khu-dat",
-};
-export const VI_STATUS_THAM_DINH_DEPARTMENT = {
-  accepted: "Đã thẩm định",
-  sending: "Đang chờ thẩm định",
-  reject: "Từ chối thẩm định",
-  pending: "Chờ thẩm định",
-};
-export const STATUS_TD = {
-  reject: "reject",
-  accepted: "accepted",
-  pending: "pending",
-  sending: "sending",
 };
 

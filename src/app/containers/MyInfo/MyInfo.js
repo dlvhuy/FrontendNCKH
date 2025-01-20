@@ -132,7 +132,7 @@ function MyInfo({ myInfo, isLoading, roleList, ...props }) {
                       />
                       <CustomSkeleton
                         size="default"
-                        label="Tổ chức"
+                        label="Vai trò"
                         name="org"
                         labelCol={{ xs: 8 }}
                         layoutCol={{ xs: 24 }}

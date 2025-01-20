@@ -5,12 +5,12 @@ import { Button, Form, Input, Modal, Select } from "antd";
 import { connect } from "react-redux";
 import Loading from "@components/Loading";
 import { isUsernameValid, toast, validateSpaceNull } from "@app/common/functionCommons";
-import { CONSTANTS, ROLE_SYSTEM, RULES, TOAST_MESSAGE } from "@constants";
+import { CONSTANTS, CREATE_ORG_ROLE_SYSTEM, ROLE_SYSTEM, RULES, TOAST_MESSAGE } from "@constants";
 import { createUser, getAllUser, updateUser } from "@app/services/NguoiDung";
 import { getAllDonVi } from "@app/services/DonVi";
 ThemMoiNguoiDung.propTypes = {};
 
-function ThemMoiNguoiDung({ visible, onCancel, reloadAPI, data, isLoading, orgType }) {
+function ThemMoiNguoiDung({ visible, onCancel, reloadAPI, data, isLoading }) {
   const [form] = Form.useForm();
   const [orgSub, setOrgSub] = useState([]);
   const cancelForm = () => {
@@ -42,13 +42,6 @@ function ThemMoiNguoiDung({ visible, onCancel, reloadAPI, data, isLoading, orgTy
       }
     }
   };
-  useEffect(() => {
-    if (data) {
-      form.setFieldsValue({ ...data, id: data._id });
-      if (data?.orgTop) setEnableOrg(true);
-      else setEnableOrg(false);
-    }
-  }, [data]);
   const getOrgSub = async () => {
     const response = await getAllDonVi(1, 0, "&type={0}".format(ROLE_SYSTEM.DEPARTMENT));
     setOrgSub(response.docs);
@@ -133,20 +126,20 @@ function ThemMoiNguoiDung({ visible, onCancel, reloadAPI, data, isLoading, orgTy
               <Input placeholder="Vui lòng nhập số điện thoại" />
             </Form.Item>
             <Form.Item
-              label="Tổ chức"
-              name="org"
+              label="Vai trò"
+              name="role"
               rules={[
                 {
                   required: true,
-                  message: "Tổ chức bắt buộc phải chọn",
+                  message: "Vai trò bắt buộc phải chọn",
                 },
               ]}
             >
-              <Select placeholder="Vui lòng chọn tổ chức">
-                {orgType.map((res, index) => {
+              <Select placeholder="Vui lòng chọn Vai trò">
+                {CREATE_ORG_ROLE_SYSTEM.map((res, index) => {
                   return (
                     <Select.Option key={index} value={res.value}>
-                      {res.label}
+                      {res.name}
                     </Select.Option>
                   );
                 })}

@@ -11,7 +11,7 @@
   "scripts": {
     "build:clean": "rimraf ./build",
     "build": "cross-env NODE_ENV=production DOMAIN_API=https://apind.sytuan.net:3000 webpack --config webpack/webpack.prod.babel.js --color -p --progress --hide-modules --display-optimization-bailout",
-    "start": "cross-env NODE_ENV=development node --max-old-space-size=4096 server",
+    "start": "cross-env NODE_ENV=development node --max-old-space-size=4096 server ",
     "start:prod": "cross-env NODE_ENV=production node server",
     "start:production": "npm run build:clean && npm run build && npm run start:prod"
   },

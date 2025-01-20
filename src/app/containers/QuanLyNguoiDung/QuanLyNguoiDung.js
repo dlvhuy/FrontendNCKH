@@ -103,11 +103,11 @@ function QuanLyNguoiDung({ isLoading, ...props }) {
     },
     {
       type: "select",
-      name: "org",
-      label: "Tên tổ chức",
-      options: dataOrg,
+      name: "role",
+      label: "Tên Vai trò",
+      options: SEARCH_ROLE_SYSTEM,
       key: "value",
-      value: "label",
+      value: "name",
     },
   ];
   const onChangeTable = (page) => {
@@ -127,11 +127,23 @@ function QuanLyNguoiDung({ isLoading, ...props }) {
     { title: "Email", dataIndex: "email", key: "email" },
     { title: "Điện thoại", dataIndex: "phone", key: "phone" },
     {
-      title: "Tổ chức",
+      title: "Vai trò",
       key: "type",
       align: "center",
       render: (_, value) => {
-        return <span>{value?.org?.name}</span>;
+        return (
+          <>
+            {SEARCH_ROLE_SYSTEM.map((res, index) => (
+              res?.value === value && (
+                <div key={index}>
+                  {res?.name}
+                </div>
+              )
+            ))}
+          
+          </>
+        );
+        
       },
     },
     {

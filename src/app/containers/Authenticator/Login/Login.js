@@ -25,7 +25,7 @@ function Login({ history, isLoading, ...props }) {
         </div>
         <div className="login-right">
           <span className="text-welcome">Đăng nhập</span>
-          <span className="text-welcome2">Chào mừng bạn đến với hệ thống quản lý quyền sử dụng đất, vui lòng đăng nhập để tiếp tục</span>
+          <span className="text-welcome2">Chào mừng bạn đến với hệ thống quản lý văn bằng chứng chỉ trường Đại học Hồng Đức, vui lòng đăng nhập để tiếp tục</span>
           <Form layout={"vertical"} className="form-center" size="large" form={form} onFinish={handleLogin}>
             <Form.Item name="username" rules={[{ required: true, message: "Tên đăng nhập không được để trống" }]}>
               <Input placeholder="Vui lòng nhập tên đăng nhập" className="txt_input" />
