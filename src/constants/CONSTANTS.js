@@ -201,6 +201,11 @@ export const TOAST_MESSAGE = {
     EDIT: "Sửa người dùng thành công",
     REMOVE: "Xoá người dùng thành công",
   },
+  USER: {
+    CREATE_NEW: "Thêm mới văn bằng thành công",
+    EDIT: "Sửa văn bằng thành công",
+    REMOVE: "Xoá bằng thành công",
+  },
   ORG: {
     CREATE_NEW: "Thêm mới đơn vị thành công",
     EDIT: "Sửa đơn vị thành công",
@@ -226,7 +231,16 @@ export const TOAST_MESSAGE = {
 export const RULES = {
   REQUIRED: { required: true, message: "Không được để trống" },
   NUMBER: { pattern: "^[0-9]+$", message: "Không phải là số" },
+  GPA_4_SCALE: {
+    pattern: /^(?:0(?:\.\d{1,2})?|[1-3](?:\.\d{1,2})?|4(?:\.0{1,2})?)$/,
+    message: "GPA phải là số lớn hơn 0, nhỏ hơn hoặc bằng 4 với tối đa 2 chữ số thập phân",
+  },
+  TOTAL_CREDITS_RULE: {
+    pattern: /^(?:[1-9][0-9]{0,2}|300)$/,
+    message: "Tổng tín chỉ phải là số nguyên từ 1 đến 300",
+  },
   PHONE: {
+
     pattern: /^(0[35789]\d{8}|02\d{9}|\+84[35789]\d{8}|(\+842)\d{9})$/,
     message: "Số điện thoại bạn vừa nhập không hợp lệ",
   },
@@ -574,6 +588,35 @@ export const CREATE_ORG_ROLE_SYSTEM = [
   { name: "Trưởng phòng đảm bảo chất lượng và khảo thí", value: "departmentStaff" },
   { name: "Hiệu trưởng", value: "department" },
 ];
+export const UNIVERSITY_MAJOR_SYSTEM = [
+  { name: "Công nghệ thông tin", value: "IT" },
+  { name: "Kỹ thuật phần mềm", value: "SoftwareEngineering" },
+  { name: "Hệ thống thông tin", value: "InformationSystems" },
+  { name: "An toàn thông tin", value: "CyberSecurity" },
+  { name: "Khoa học máy tính", value: "ComputerScience" },
+  { name: "Trí tuệ nhân tạo", value: "AI" },
+  { name: "Quản trị kinh doanh", value: "BusinessManagement" },
+  { name: "Kế toán", value: "Accounting" },
+  { name: "Tài chính - Ngân hàng", value: "FinanceBanking" },
+  { name: "Xây dựng", value: "Construction" },
+  { name: "Y học", value: "Medicine" }
+]
+export const Education_SYSTEM = [
+  { name: "Chính quy", value: "Regular" },
+  { name: "Liên thông", value: "Bridging" },
+  { name: "Tại chức", value: "InService" },
+  { name: "Đào tạo từ xa", value: "DistanceLearning" },
+  { name: "Cao đẳng", value: "College" },
+  { name: "Sau đại học", value: "Postgraduate" }
+]
+
+export const GRADUATION_CLASSIFICATION = [
+  { name: "Xuất sắc", value: "Excellent" },
+  { name: "Giỏi", value: "VeryGood" },
+  { name: "Khá", value: "Good" },
+  { name: "Trung bình", value: "Average" },
+  { name: "Yếu", value: "Weak" }
+]
 export const TYPE_IMAGE_CAP_MOI = {
   ANH_KHU_DAT: "anh-khu-dat",
   DON_DANG_KY: "don-dang-ky",
