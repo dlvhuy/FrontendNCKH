@@ -32,11 +32,11 @@
     "bootstrap": "4.5.3",
     "chalk": "2.4.2",
     "classnames": "2.3.1",
-    "compression": "1.7.4",
     "clipboard-copy": "^4.0.1",
+    "compression": "1.7.4",
     "cross-env": "5.2.0",
-    "file-saver": "^2.0.5",
     "express": "4.16.4",
+    "file-saver": "^2.0.5",
     "ip": "1.1.5",
     "jquery": "3.6.0",
     "js-cookie": "2.2.1",
@@ -48,20 +48,20 @@
     "prop-types": "15.7.2",
     "query-string": "7.0.0",
     "rc-util": "5.13.1",
-    "react": "16.8.6",
+    "react": "^16.9.0",
     "react-color": "2.19.3",
-    "react-dom": "16.8.6",
+    "react-dom": "^16.9.0",
     "react-dropzone": "11.3.2",
     "react-loading": "2.0.3",
     "react-redux": "7.0.2",
     "react-router-dom": "5.2.0",
     "react-toastify": "7.0.2",
     "redux": "4.0.1",
-    "swiper": "^6.8.4",
     "redux-persist": "6.0.0",
     "redux-saga": "1.0.2",
     "sanitize.css": "8.0.0",
-    "socket.io-client": "4.1.2"
+    "socket.io-client": "4.1.2",
+    "swiper": "^6.8.4"
   },
   "devDependencies": {
     "@babel/cli": "7.4.3",
@@ -114,7 +114,7 @@
     "svg-url-loader": "2.3.2",
     "terser-webpack-plugin": "1.2.3",
     "url-loader": "1.1.2",
-    "webpack": "4.28.4",
+    "webpack": "^4.47.0",
     "webpack-cli": "3.3.0",
     "webpack-dev-middleware": "3.6.2",
     "webpack-hot-middleware": "2.24.3",
@@ -126,4 +126,3 @@
     "npm": ">=5"
   }
 }
-

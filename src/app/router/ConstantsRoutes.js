@@ -28,6 +28,8 @@ const User = lazy(() => import("@containers/User/User"));
 const QuanLyDonVi = lazy(() => import("@containers/QuanLyDonVi/QuanLyDonVi"));
 const KhoiPhucTaiKhoan = lazy(() => import("@containers/User/KhoiPhucTaiKhoan"));
 const Role = lazy(() => import("@containers/Role/Role"));
+const QuanLyVanBang = lazy(() => import("@containers/QuanLyVanBang/QuanLyVanBang"));
+
 const QuanLyNguoiDung = lazy(() => import("@containers/QuanLyNguoiDung/QuanLyNguoiDung"));
 
 function renderIcon(icon) {
@@ -74,13 +76,13 @@ export const ADMIN_ROUTES = [
         path: URL.MENU.KHOI_PHUC_TAI_KHOAN,
         menuName: "Khôi phục tài khoản",
         component: KhoiPhucTaiKhoan,
-        permission: [],
+        permission: "all",
       },
       {
         path: URL.MENU.ROLE,
         menuName: "Vai trò",
-        component: Role,
-        permission: [],
+        component: QuanLyVanBang,
+        permission: [ROLE_SYSTEM.ADMIN],
       },
     ],
   },
@@ -88,10 +90,7 @@ export const ADMIN_ROUTES = [
     key: URL.MENU.DANH_MUC,
     menuName: "Danh mục",
     icon: renderIcon(<ListIcon />),
-    permission: [
-     
-
-    ],
+    permission: [],
     children: [
       // {
       //   path: URL.MENU.QUAN_LY_TO_CHUC,
