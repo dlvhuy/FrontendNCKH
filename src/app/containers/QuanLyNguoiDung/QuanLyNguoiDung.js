@@ -56,7 +56,7 @@ function QuanLyNguoiDung({ isLoading, ...props }) {
     if (changeTable) {
       newQuery = queryString.parse(location.search);
       delete newQuery.page;
-      delete newQuery.limit;
+      delete newQuery.limit;    
     }
     if (getChangeFormSearch(newQuery, queryString.parse(location.search))) {
       objFilterTable.page = 1;

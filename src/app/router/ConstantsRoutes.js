@@ -19,6 +19,9 @@ import actions from "@app/rbac/actions";
 import { ROLE_SYSTEM } from "@constants";
 import { ROLE } from "@components/Notification/NotificationPayLoadType";
 import SearchIcon from "@components/Icons/SearchIcon";
+import CertificateIcon from "@components/Icons/CertificateIcon";
+
+
 
 const MyInfo = lazy(() => import("@containers/MyInfo/MyInfo"));
 const TrangChu = lazy(() => import("@containers/TrangChu/TrangChu"));
@@ -79,7 +82,7 @@ export const ADMIN_ROUTES = [
         path: URL.MENU.KHOI_PHUC_TAI_KHOAN,
         menuName: "Khôi phục tài khoản",
         component: KhoiPhucTaiKhoan,
-        permission: [],
+        permission: [ROLE_SYSTEM.ADMIN],
       },
       {
         path: URL.MENU.ROLE,
@@ -118,7 +121,7 @@ export const ADMIN_ROUTES = [
     menuName: "Danh mục",
     icon: renderIcon(<ListIcon />),
     permission: [
-     
+
 
     ],
     children: [
@@ -128,7 +131,7 @@ export const ADMIN_ROUTES = [
       //   component: QuanLyDonVi,
       //   permission: ROLE_SYSTEM.SYSTEM,
       // },
-     
+
     ],
   },
 
@@ -160,7 +163,7 @@ export const ADMIN_ROUTES = [
   //   permission: [ROLE_SYSTEM.USER],
   // },
 
- 
+
 ];
 
 export function ConstantsRoutes() {
