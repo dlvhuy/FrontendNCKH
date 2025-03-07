@@ -15,7 +15,7 @@ function TrangChu({ isLoading, ...props }) {
   return (
     <BaseContent>
       <Loading active={isLoading}>
-        <div className="all">
+        {/* <div className="all">
           <div className="top_intro">
             <Row gutter={16}>
               <Col xs={24} sm={5}>
@@ -94,7 +94,7 @@ function TrangChu({ isLoading, ...props }) {
               </Col>
             </Row>
           </div>
-        </div>
+        </div> */}
       </Loading>
     </BaseContent>
   );

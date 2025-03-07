@@ -206,6 +206,11 @@ export const TOAST_MESSAGE = {
     EDIT: "Sửa văn bằng thành công",
     REMOVE: "Xoá bằng thành công",
   },
+  STUDENT:{
+    CREATE_NEW: "Thêm mới hồ sơ sinh viên thành công",
+    EDIT: "Sửa hồ sơ sinh viên thành công",
+    REMOVE: "Xoá hồ sơ sinh viên thành công",
+  },
   ORG: {
     CREATE_NEW: "Thêm mới đơn vị thành công",
     EDIT: "Sửa đơn vị thành công",

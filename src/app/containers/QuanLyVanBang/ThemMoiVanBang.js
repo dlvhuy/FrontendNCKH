@@ -6,8 +6,10 @@ import { connect } from "react-redux";
 import Loading from "@components/Loading";
 import { isUsernameValid, toast, validateSpaceNull } from "@app/common/functionCommons";
 import { CONSTANTS, CREATE_ORG_ROLE_SYSTEM, Education_SYSTEM, GRADUATION_CLASSIFICATION, ROLE_SYSTEM, RULES, TOAST_MESSAGE, UNIVERSITY_MAJOR_SYSTEM } from "@constants";
-import { createUser, getAllUser, updateUser } from "@app/services/NguoiDung";
+// import { createUser, getAllUser, updateUser } from "@app/services/NguoiDung";
+
 import { getAllDonVi } from "@app/services/DonVi";
+import { createStudent } from "@app/services/SinhVien";
 ThemMoiVanBang.propTypes = {};
 
 function ThemMoiVanBang({ visible, onCancel, reloadAPI, data, isLoading }) {
@@ -27,10 +29,10 @@ function ThemMoiVanBang({ visible, onCancel, reloadAPI, data, isLoading }) {
 
 
     if (!e.id) {
-      const response = await createUser(e);
+      const response = await createStudent(e);
       if (response) {
-        toast(CONSTANTS.SUCCESS, TOAST_MESSAGE.USER.CREATE_NEW);
-        toast(CONSTANTS.INFO, TOAST_MESSAGE.USER.EMAIL_PASSWORD);
+        toast(CONSTANTS.SUCCESS, TOAST_MESSAGE.STUDENT.CREATE_NEW);
+        toast(CONSTANTS.INFO, TOAST_MESSAGE.STUDENT.EMAIL_PASSWORD);
         cancelForm();
         form.resetFields();
         reloadAPI();
@@ -38,7 +40,7 @@ function ThemMoiVanBang({ visible, onCancel, reloadAPI, data, isLoading }) {
     } else {
       const response = await updateUser(e);
       if (response) {
-        toast(CONSTANTS.SUCCESS, TOAST_MESSAGE.USER.EDIT);
+        toast(CONSTANTS.SUCCESS, TOAST_MESSAGE.STUDENT.EDIT);
 
         cancelForm();
         form.resetFields();

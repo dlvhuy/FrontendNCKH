@@ -16,6 +16,7 @@ import DialogDeleteConfim from "@components/DialogDeleteConfim/DialogDeleteConfi
 import ThemMoiVanBang from "../ThemMoiVanBang";
 import { deleteUser, getAllUser } from "@app/services/NguoiDung";
 import { deleteDegree, getAllDegree } from "@app/services/VanBang";
+import { getAllStudent } from "@app/services/SinhVien";
 import { ColumnDegree4Staff } from "../constant";
 QuanLyVanBang.propTypes = {};
 
@@ -43,7 +44,7 @@ function QuanLyVanBang({ isLoading, ...props }) {
         queryStr += `${search.studentID ? "&studentID={0}".format(search.studentID) : ""}`;
         queryStr += `${search.org ? "&major={0}".format(search.major) : ""}`;
         // queryStr += `${search.active ? "&active={0}".format(search.active) : ""}`;
-        const apiResponse = await getAllDegree(page, limit, queryStr);
+        const apiResponse = await getAllStudent(page, limit, queryStr);
         if (apiResponse) {
             const dataRes = apiResponse.docs;
             setData(dataRes);
@@ -167,12 +168,12 @@ function QuanLyVanBang({ isLoading, ...props }) {
                 <Loading active={isLoading}>
                     <div className="QuanLyVanBang-container">
                         <div className="QuanLyVanBang-header">
-                            <div className="QuanLyVanBang-title">Danh sách người dùng</div>
+                            <div className="QuanLyVanBang-title">Danh sách sinh viên</div>
                             <SearchBar
                                 dataSearch={dataSearch}
                                 onFilterChange={handleRefresh}
                                 buttonHeader={true}
-                                labelButtonHeader={"Thêm văn bằng"}
+                                labelButtonHeader={"Thêm hồ sơ sinh viên"}
                                 handleBtnHeader={handleThemMoiVanBang}
                             />
                         </div>
@@ -181,7 +182,7 @@ function QuanLyVanBang({ isLoading, ...props }) {
                                 <Table
                                     bordered
                                     className="table"
-                                    showHeader={true}
+                                    showHeader={true}   
                                     columns={ColumnVanBang}
                                     dataSource={data}
                                     scroll={{ x: 900 }}

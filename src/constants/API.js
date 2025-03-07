@@ -46,8 +46,12 @@ export const API = {
   SEND_RESULT_CAP_LAI_TO_ORG: "/api/transfer/sendResultToOrg/{0}",
   GET_LAND: "/api/land/getLand/{0}",
   CREATE_NEW_DEGREE:"/api/degree/create",
-  UPDATE_DEGREE:"/api/degree/updateDegree/{0}",
+  UPDATE_DEGREE:"/api/degree/update/{0}",
   GET_ALL_DEGREE:"/api/degree/getAllDegree?page={0}&limit={1}{2}",
   GET_DEGREE:"/api/degree/{0}",
+  GET_PAGINATION_SINH_VIEN: "/api/student/getAllPagination?page={0}&limit={1}{2}",
+  CREATE_SINH_VIEN: "/api/student/create",
+  UPDATE_SINH_VIEN: "/api/student/update/{0}",
+  DELETE_SINH_VIEN: "/api/student/delete/{0}",
 };
 

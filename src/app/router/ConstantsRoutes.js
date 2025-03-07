@@ -37,6 +37,9 @@ const QuanLyNguoiDung = lazy(() => import("@containers/QuanLyNguoiDung/QuanLyNgu
 const Staff = lazy(() => import("@containers/QuanLyVanBang/Staff/QuanLyVanBang"));
 const Department = lazy(() => import("@containers/QuanLyVanBang/Department/QuanLyVanBang"));
 const DepartmentStaff = lazy(() => import("@containers/QuanLyVanBang/DepartmentStaff/QuanLyVanBang"));
+const QuanLyVanBang4Staff = lazy(() => import("@containers/QuanLyVanBang/Staff/QuanLyVanBang"));
+const QuanLyVanBang4DepartmentStaff = lazy(() => import("@containers/QuanLyVanBang/DepartmentStaff/QuanLyVanBang"));
+const QuanLyVanBang4Department = lazy(() => import("@containers/QuanLyVanBang/Department/QuanLyVanBang"));
 
 function renderIcon(icon) {
   return (
@@ -78,12 +81,18 @@ export const ADMIN_ROUTES = [
         component: QuanLyNguoiDung,
         permission: [ROLE_SYSTEM.ADMIN],
       },
-      {
-        path: URL.MENU.KHOI_PHUC_TAI_KHOAN,
-        menuName: "Khôi phục tài khoản",
-        component: KhoiPhucTaiKhoan,
-        permission: [ROLE_SYSTEM.ADMIN],
-      },
+      // {
+      //   path: URL.MENU.KHOI_PHUC_TAI_KHOAN,
+      //   menuName: "Khôi phục tài khoản",
+      //   component: KhoiPhucTaiKhoan,
+      //   permission: [ROLE_SYSTEM.ADMIN],
+      // },
+      // {
+      //   path: URL.MENU.ROLE,
+      //   menuName: "Vai trò",
+      //   component: Role,
+      //   permission: "all",
+      // },
     ],
   }, {
     key: URL.MENU.QUAN_LY_VAN_BANG,
@@ -91,21 +100,21 @@ export const ADMIN_ROUTES = [
     icon: renderIcon(<UserIcon />),
     permission: "all",
     children: [{
-      path: URL.MENU.CERTIFICATE,
-      menuName: "Quản lý Văn Bằng",
-      component: Staff,
+      path: URL.MENU.CERTIFICATE_STAFF,
+      menuName: "Nhân viên khảo thí ",
+      component: QuanLyVanBang4Staff,
       permission: [ROLE_SYSTEM.ADMIN,ROLE_SYSTEM.STAFF],
     },
     {
-      path: URL.MENU.USER,
-      menuName: "Quản lý Văn Bằng",
-      component: DepartmentStaff,
+      path: URL.MENU.CERTIFICATE_DEPARTMENTSTAFF,
+      menuName: "Trưởng phòng khảo thí",
+      component: QuanLyVanBang4DepartmentStaff,
       permission: [ROLE_SYSTEM.ADMIN,ROLE_SYSTEM.DEPARTMENTSTAFF],
     },
     {
-      path: URL.MENU.USER,
-      menuName: "Quản lý Văn Bằng",
-      component: Department,
+      path: URL.MENU.CERTIFICATE_DEPARTMENT,
+      menuName: "Hiệu trưởng",
+      component: QuanLyVanBang4Department,
       permission: [ROLE_SYSTEM.ADMIN,ROLE_SYSTEM.DEPARTMENT],
     },
     ],

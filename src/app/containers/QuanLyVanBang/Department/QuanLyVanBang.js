@@ -167,7 +167,7 @@ function QuanLyVanBang({ isLoading, ...props }) {
                 <Loading active={isLoading}>
                     <div className="QuanLyVanBang-container">
                         <div className="QuanLyVanBang-header">
-                            <div className="QuanLyVanBang-title">Danh sách người dùng</div>
+                            <div className="QuanLyVanBang-title">Danh sách văn bằng</div>
                             <SearchBar
                                 dataSearch={dataSearch}
                                 onFilterChange={handleRefresh}
@@ -198,12 +198,12 @@ function QuanLyVanBang({ isLoading, ...props }) {
                     </div>
                 </Loading>
             </BaseContent>
-            <ThemMoiVanBang
+            {/* <ThemMoiVanBang
                 visible={visibleDialog}
                 onCancel={closeDialog}
                 data={dataDialog}
                 reloadAPI={getDataFilter}
-            />
+            /> */}
             <DialogDeleteConfim visible={visibleXoa} onCancel={cancelXoa} onOK={handleRemove} />
         </>
     );

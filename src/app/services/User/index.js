@@ -6,6 +6,7 @@ import { deleteByIdBase, getAllPaginationBase } from '@app/services/Base';
 import { convertCamelCaseToSnakeCase, convertSnakeCaseToCamelCase } from '@app/common/dataConverter';
 
 export function login(data) {
+  console.log(convertCamelCaseToSnakeCase(data))
   return axios.post(`${API.LOGIN}`, convertCamelCaseToSnakeCase(data))
     .then(response => {
       if (response.status === 200) return response.data?.token;
