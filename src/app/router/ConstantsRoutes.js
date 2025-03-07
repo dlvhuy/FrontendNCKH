@@ -28,7 +28,12 @@ const User = lazy(() => import("@containers/User/User"));
 const QuanLyDonVi = lazy(() => import("@containers/QuanLyDonVi/QuanLyDonVi"));
 const KhoiPhucTaiKhoan = lazy(() => import("@containers/User/KhoiPhucTaiKhoan"));
 const Role = lazy(() => import("@containers/Role/Role"));
+
+
 const QuanLyNguoiDung = lazy(() => import("@containers/QuanLyNguoiDung/QuanLyNguoiDung"));
+const Staff = lazy(() => import("@containers/QuanLyVanBang/Staff/QuanLyVanBang"));
+const Department = lazy(() => import("@containers/QuanLyVanBang/Department/QuanLyVanBang"));
+const DepartmentStaff = lazy(() => import("@containers/QuanLyVanBang/DepartmentStaff/QuanLyVanBang"));
 
 function renderIcon(icon) {
   return (
@@ -79,9 +84,33 @@ export const ADMIN_ROUTES = [
       {
         path: URL.MENU.ROLE,
         menuName: "Vai trò",
-        component: Role,
-        permission: [],
+        component: QuanLyVanBang,
+        permission: "all",
       },
+    ],
+  }, {
+    key: URL.MENU.QUAN_LY_VAN_BANG,
+    menuName: "Văn Bằng",
+    icon: renderIcon(<UserIcon />),
+    permission: "all",
+    children: [{
+      path: URL.MENU.CERTIFICATE,
+      menuName: "Quản lý Văn Bằng",
+      component: Staff,
+      permission: [ROLE_SYSTEM.ADMIN,ROLE_SYSTEM.STAFF],
+    },
+    {
+      path: URL.MENU.USER,
+      menuName: "Quản lý Văn Bằng",
+      component: DepartmentStaff,
+      permission: [ROLE_SYSTEM.ADMIN,ROLE_SYSTEM.DEPARTMENTSTAFF],
+    },
+    {
+      path: URL.MENU.USER,
+      menuName: "Quản lý Văn Bằng",
+      component: Department,
+      permission: [ROLE_SYSTEM.ADMIN,ROLE_SYSTEM.DEPARTMENT],
+    },
     ],
   },
   {
