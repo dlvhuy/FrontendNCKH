@@ -13,9 +13,10 @@ import { CONSTANTS, PAGINATION_CONFIG, ROLE_SYSTEM, SEARCH_ROLE_SYSTEM, TOAST_ME
 import { Button, Table, Tooltip } from "antd";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import DialogDeleteConfim from "@components/DialogDeleteConfim/DialogDeleteConfim";
-import ThemMoiVanBang from "./ThemMoiVanBang";
+import ThemMoiVanBang from "../ThemMoiVanBang";
 import { deleteUser, getAllUser } from "@app/services/NguoiDung";
 import { deleteDegree, getAllDegree } from "@app/services/VanBang";
+import { Column4Deparment, dataSearch } from "../constant";
 QuanLyVanBang.propTypes = {};
 
 function QuanLyVanBang({ isLoading, ...props }) {
@@ -72,48 +73,12 @@ function QuanLyVanBang({ isLoading, ...props }) {
         setDataDialog(null);
         setVisibleDialog(false);
     };
-    const dataSearch = [
-        {
-            name: "degreeId",
-            label: "Số hiệu bằng",
-            type: "text",
-        },
-        {
-            name: "name",
-            label: "Họ và tên",
-            type: "text",
-            //   operate: "like",
-        },
-        {
-            name: "studentID",
-            label: "Mã sinh viên",
-            type: "text",
-        },
-        {
-            name: "major",
-            label: "Ngành học",
-            type: "text",
-        },
-    ];
     const onChangeTable = (page) => {
         setLimit(page.pageSize);
         setPage(page.current);
     };
     const ColumnVanBang = [
-        {
-            title: "STT",
-            render: (v1, v2, value) => formatSTT(limit, page, value),
-            key: "STT",
-            align: "center",
-            width: 60,
-        },
-        { title: "Số Hiệu Bằng", dataIndex: "degreeId", key: "degreeId" },
-        { title: "Họ và tên", dataIndex: "name", key: "name" },
-        { title: "Mã sinh viên", dataIndex: "studentID", key: "studentID" },
-        { title: "Ngành đào tạo", dataIndex: "major", key: "major" },
-        { title: "Xếp loại tốt nghiệp", dataIndex: "degreeClassification", key: "degreeClassification" },
-        { title: "GPA(hệ số 4)", dataIndex: "gpaType4", key: "gpaType4" },
-        { title: "Tổng tín chỉ", dataIndex: "totalCredit", key: "totalCredit" },
+        ...Column4Deparment,
         {
             title: "Tác vụ",
             key: "action",
@@ -179,13 +144,10 @@ function QuanLyVanBang({ isLoading, ...props }) {
                 <Loading active={isLoading}>
                     <div className="QuanLyVanBang-container">
                         <div className="QuanLyVanBang-header">
-                            <div className="QuanLyVanBang-title">Danh sách người dùng</div>
+                            <div className="QuanLyVanBang-title">Danh sách Văn Bằng</div>
                             <SearchBar
                                 dataSearch={dataSearch}
                                 onFilterChange={handleRefresh}
-                                buttonHeader={true}
-                                labelButtonHeader={"Thêm văn bằng"}
-                                handleBtnHeader={handleThemMoiVanBang}
                             />
                         </div>
                         <div className="QuanLyVanBang-body">

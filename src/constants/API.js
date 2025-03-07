@@ -48,6 +48,6 @@ export const API = {
   CREATE_NEW_DEGREE:"/api/degree/create",
   UPDATE_DEGREE:"/api/degree/updateDegree/{0}",
   GET_ALL_DEGREE:"/api/degree/getAllDegree?page={0}&limit={1}{2}",
-  DELETE_DEGREE:"/api/degree/deleteDegree/{0}"
+  GET_DEGREE:"/api/degree/{0}",
 };
 

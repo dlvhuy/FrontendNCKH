@@ -170,7 +170,7 @@ function ThemMoiVanBang({ visible, onCancel, reloadAPI, data, isLoading }) {
                 },
                 RULES.TOTAL_CREDITS_RULE,
               ]}>
-              <Input placeholder="Vui lòng tổng tín chỉ" />
+              <Input placeholder="Vui lòng nhập tổng số tín chỉ" />
             </Form.Item>
             <div className="btn-handle">
               <Button className="btn-cancel-custom btn-cl" onClick={cancelForm}>
