@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import "./QuanLyNguoiDung.scss";
+import "./QuanLyVanBang2.scss";
 import BaseContent from "@components/BaseContent";
 import { connect } from "react-redux";
 import Loading from "@components/Loading";
@@ -13,12 +13,12 @@ import { CONSTANTS, PAGINATION_CONFIG, ROLE_SYSTEM, SEARCH_ROLE_SYSTEM, TOAST_ME
 import { Button, Table, Tooltip } from "antd";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import DialogDeleteConfim from "@components/DialogDeleteConfim/DialogDeleteConfim";
-import ThemMoiNguoiDung from "./ThemMoiNguoiDung";
+import ThemMoiNguoiDung from "./ThemMoiVanBang";
 import { deleteUser, getAllUser } from "@app/services/NguoiDung";
-import { deleteStudent } from "@app/services/SinhVien";
-QuanLyNguoiDung.propTypes = {};
+import { deleteDegree, getAllDegree } from "@app/services/VanBang";
+QuanLyVanBang.propTypes = {};
 
-function QuanLyNguoiDung({ isLoading, ...props }) {
+function QuanLyVanBang({ isLoading, ...props }) {
   const history = useHistory();
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(1);
@@ -37,14 +37,14 @@ function QuanLyNguoiDung({ isLoading, ...props }) {
   const getDataFilter = async () => {
     const search = queryString.parse(location.search);
     let queryStr = "";
-    queryStr += `${search.username ? "&username[like]={0}".format(search.username) : ""}`;
-    queryStr += `${search.name ? "&name[like]={0}".format(search.name) : ""}`;
-    queryStr += `${search.phone ? "&phone[like]={0}".format(search.phone) : ""}`;
-    queryStr += `${search.org ? "&org={0}".format(search.org) : ""}`;
+    queryStr += `${search.approvalStatus ? "&approvalStatus[like]={0}".format(search.approvalStatus) : ""}`;
+    queryStr += `${search.approvalDate ? "&approvalDate[like]={0}".format(search.approvalDate) : ""}`;
+    queryStr += `${search.approvalBy ? "&approvalBy[like]={0}".format(search.approvalBy) : ""}`;
+    queryStr += `${search.degreeIssueDate ? "&degreeIssueDate={0}".format(search.degreeIssueDate) : ""}`;
     // queryStr += `${search.active ? "&active={0}".format(search.active) : ""}`;
-    const apiResponse = await getAllUser(page, limit, queryStr);
+    const apiResponse = await getAllDegree(page, limit, queryStr);
     if (apiResponse) {
-      const dataRes = apiResponse.docs;
+      const dataRes = apiResponse.data.docs;
       setData(dataRes);
       setLimit(apiResponse.limit);
       setPage(apiResponse.page);
@@ -74,30 +74,27 @@ function QuanLyNguoiDung({ isLoading, ...props }) {
   };
   const dataSearch = [
     {
-      name: "username",
-      label: "Tên tài khoản",
+      name: "approvalStatus",
+      label: "Trạng thái xet duyệt",
       type: "text",
     },
     {
-      name: "name",
-      label: "Tên người dùng",
+      name: "approvalDate",
+      label: "ngày xét duyệt",
       type: "text",
       operate: "like",
     },
     {
-      name: "phone",
-      label: "Số điện thoại",
+      name: "approvalBy",
+      label: "Người xét duyệt",
       type: "text",
-
     },
     {
-      type: "select",
-      name: "role",
-      label: "Tên Vai trò",
-      options: SEARCH_ROLE_SYSTEM,
-      key: "value",
-      value: "name",
+      name: "rejectionReason",
+      label: "Lý do từ chối",
+      type: "text",
     },
+
   ];
   const onChangeTable = (page) => {
     setLimit(page.pageSize);
@@ -111,30 +108,15 @@ function QuanLyNguoiDung({ isLoading, ...props }) {
       align: "center",
       width: 60,
     },
-    { title: "Tên tài khoản", dataIndex: "username", key: "username" },
-    { title: "Tên người dùng", dataIndex: "name", key: "name" },
-    { title: "Email", dataIndex: "email", key: "email" },
-    { title: "Điện thoại", dataIndex: "phone", key: "phone" },
-    {
-      title: "Vai trò",
-      key: "type",
-      align: "center",
-      render: (_, value) => {
-        return (
-          <>
-            {SEARCH_ROLE_SYSTEM.map((res, index) => (
-              res?.value === value?.role && (
-                <div key={index}>
-                  {res?.name}
-                </div>
-              )
-            ))}
-          
-          </>
-        );
-        
-      },
-    },
+    { title: "Tên sinh viên", dataIndex: ["studentId", "name"], key: "studentId.name" },
+    { title: "Chuyên ngành", dataIndex: ["studentId", "major"], key: "major" },
+    { title: "Phân loại", dataIndex: ["studentId", "degreeClassification"], key: "degreeClassification" },
+    { title: "Điểm gpa 4", dataIndex: ["studentId", "gpaType4"], key: "gpaType4" },
+    { title: "Trạng thái", dataIndex: ["studentId", "status"], key: "status" },
+    { title: "Trạng thái Duyệt", dataIndex: "approvalStatus", key: "approvalStatus" },
+    { title: "Ngày duyệt", dataIndex: "approvalDate", key: "approvalDate" },
+    { title: "Người duyệt", dataIndex: "approvalBy", key: "approvalBy" },
+   
     {
       title: "Tác vụ",
       key: "action",
@@ -143,24 +125,24 @@ function QuanLyNguoiDung({ isLoading, ...props }) {
       render: (_, value) => {
         return (
           <div className="action-dv">
-            <Tooltip placement="left" title="Chỉnh sửa người dùng" color="#FF811E">
+            <Tooltip placement="left" title="Xét duyệt văn bằng" color="#FF811E">
               <Button
                 icon={<EditOutlined />}
                 size="small"
                 type="primary"
                 className="mr-1"
                 style={{ backgroundColor: "#FF811E", borderColor: "#FF811E" }}
-                onClick={() => handleEditNguoiDung(value)}
+                onClick={() => ApprovalDegree(value)}
               ></Button>
             </Tooltip>
-            <Tooltip placement="right" title="Xóa Người dùng" color="#FF0000">
+            <Tooltip placement="right" title="Ký văn bằng" color="#FF0000">
               <Button
                 icon={<DeleteOutlined />}
                 type="danger"
                 style={{ backgroundColor: "#FF0000" }}
                 size="small"
                 className="mr-1"
-                onClick={() => showDialogXoa(value)}
+                onClick={() => SignDegree(value)}
               />
             </Tooltip>
           </div>
@@ -168,11 +150,11 @@ function QuanLyNguoiDung({ isLoading, ...props }) {
       },
     },
   ];
-  const handleThemMoiNguoiDung = () => {
+  const ApprovalDegree = () => {
     setDataDialog(null);
     showDialog();
   };
-  const handleEditNguoiDung = (data) => {
+  const SignDegree = (data) => {
     setDataDialog(data);
     showDialog();
   };
@@ -186,9 +168,9 @@ function QuanLyNguoiDung({ isLoading, ...props }) {
   };
   const handleRemove = async () => {
     if (dataXoa) {
-      const response = await deleteUser(dataXoa._id);
+      const response = await deleteDegree(dataXoa._id);
       if (response) {
-        toast(CONSTANTS.SUCCESS, TOAST_MESSAGE.DEGREE.REMOVE);
+        toast(CONSTANTS.SUCCESS, TOAST_MESSAGE.USER.REMOVE);
         cancelXoa();
         getDataFilter();
       }
@@ -204,9 +186,6 @@ function QuanLyNguoiDung({ isLoading, ...props }) {
               <SearchBar
                 dataSearch={dataSearch}
                 onFilterChange={handleRefresh}
-                buttonHeader={true}
-                labelButtonHeader={"Thêm người dùng"}
-                handleBtnHeader={handleThemMoiNguoiDung}
               />
             </div>
             <div className="QuanLyNguoiDung-body">
@@ -245,5 +224,5 @@ function mapStatetoProps(store) {
   const { isLoading } = store.app;
   return { isLoading };
 }
-export default connect(mapStatetoProps)(QuanLyNguoiDung);
+export default connect(mapStatetoProps)(QuanLyVanBang);
 

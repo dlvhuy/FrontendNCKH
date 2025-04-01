@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import "./ThemMoiNguoiDung.scss";
+import "./ThemMoiVangBang.scss";
 import { Button, Form, Input, Modal, Select } from "antd";
 import { connect } from "react-redux";
 import Loading from "@components/Loading";
 import { isUsernameValid, toast, validateSpaceNull } from "@app/common/functionCommons";
 import { CONSTANTS, CREATE_ORG_ROLE_SYSTEM, ROLE_SYSTEM, RULES, TOAST_MESSAGE } from "@constants";
 import { createUser, getAllUser, updateUser } from "@app/services/NguoiDung";
-
+import { getAllDonVi } from "@app/services/DonVi";
 ThemMoiNguoiDung.propTypes = {};
 
 function ThemMoiNguoiDung({ visible, onCancel, reloadAPI, data, isLoading }) {

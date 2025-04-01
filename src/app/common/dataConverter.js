@@ -1,6 +1,7 @@
 import { camelCase, snakeCase } from 'lodash';
 import moment from 'moment';
 import { cloneObj } from '@app/common/functionCommons';
+import { GRADUATION_CLASSIFICATION } from '@constants';
 
 export function extractIds(listData) {
   return listData?.map(element => element._id);
@@ -17,6 +18,21 @@ export function groupBy(list, key) {
   }, {});
 }
 
+export function gpaConvertToClassification(gpa) {
+
+  console.log(gpa)
+  if (gpa >= 3.6) {
+    return GRADUATION_CLASSIFICATION.find(c => c.value === "Excellent");
+  } else if (gpa >= 3.0) {
+    return GRADUATION_CLASSIFICATION.find(c => c.value === "VeryGood");
+  } else if (gpa >= 2.5) {
+    return GRADUATION_CLASSIFICATION.find(c => c.value === "Good");
+  } else if (gpa >= 2.0) {
+    return GRADUATION_CLASSIFICATION.find(c => c.value === "Average");
+  } else {
+    return GRADUATION_CLASSIFICATION.find(c => c.value === "Weak");
+  }
+}
 
 export function sortThuTu(a, b) {
   return a.thuTu - b.thuTu;

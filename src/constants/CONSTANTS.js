@@ -201,7 +201,7 @@ export const TOAST_MESSAGE = {
     EDIT: "Sửa người dùng thành công",
     REMOVE: "Xoá người dùng thành công",
   },
-  USER: {
+  DEGREE: {
     CREATE_NEW: "Thêm mới văn bằng thành công",
     EDIT: "Sửa văn bằng thành công",
     REMOVE: "Xoá bằng thành công",
@@ -617,6 +617,18 @@ export const GRADUATION_CLASSIFICATION = [
   { name: "Trung bình", value: "Average" },
   { name: "Yếu", value: "Weak" }
 ]
+
+
+
+export const Education_SYSTEM2 = [
+  { key: "Chính quy", value: "Regular" },
+  { key: "Liên thông", value: "Bridging" },
+  { key: "Tại chức", value: "InService" },
+  { key: "Đào tạo từ xa", value: "DistanceLearning" },
+  { key: "Cao đẳng", value: "College" },
+  { key: "Sau đại học", value: "Postgraduate" }
+]
+
 export const TYPE_IMAGE_CAP_MOI = {
   ANH_KHU_DAT: "anh-khu-dat",
   DON_DANG_KY: "don-dang-ky",

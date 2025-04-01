@@ -13,3 +13,9 @@ export function updateDegree(data) {
 export function deleteDegree(id) {
   return deleteByIdBase(API.DELETE_DEGREE, id);
 }
+export function AppproveDegree(id) {
+  return updateBaseFormatID(API.APPROVAL_DEGREE, id);
+}
+export function SignDegree(id) {
+  return updateBaseFormatID(API.SIGN_DEGREE, id);
+}

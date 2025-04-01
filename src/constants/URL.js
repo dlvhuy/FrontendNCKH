@@ -8,6 +8,7 @@ export const URL = {
     QUAN_LY_NGUOI_DUNG: "/quan-ly-nguoi-dung",
     QUAN_LY_VAN_BANG: "/quan-ly-van-bang",
     USER: "/quan-ly-nguoi-dung1",
+    STUDENT:"/quan-ly-sinh-vien",
     CERTIFICATE_DEPARTMENTSTAFF:"/quan-ly-van-bang/-department-staff",
     CERTIFICATE_STAFF:"/quan-ly-van-bang/staff",
     CERTIFICATE_DEPARTMENT:"/quan-ly-van-bang/department",

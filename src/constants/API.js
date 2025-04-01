@@ -45,9 +45,19 @@ export const API = {
   SEND_RESULT_THAM_DINH_RECERTIFICATE_TO_ORG: "/api/reCertificate/sendResultToUser/{0}",
   SEND_RESULT_CAP_LAI_TO_ORG: "/api/transfer/sendResultToOrg/{0}",
   GET_LAND: "/api/land/getLand/{0}",
+
   CREATE_NEW_DEGREE:"/api/degree/create",
   UPDATE_DEGREE:"/api/degree/updateDegree/{0}",
   GET_ALL_DEGREE:"/api/degree/getAllDegree?page={0}&limit={1}{2}",
   GET_DEGREE:"/api/degree/{0}",
+  APPROVAL_DEGREE:"api/degree/approveStudent/{0}",
+  SIGN_DEGREE:"api/degree/sign/{0}",
+
+  GET_STUDENTS:"api/student/getStudentPagination?page={0}&limit={1}{2}",
+  GET_STUDENT:"api/student/{0}",
+  CREATE_STUDENT:"api/student/create",
+  UPDATE_STUDENT:"api/student/update/{0}",
+  DELETE_STUDENT:"api/student/delete/{0}",
+  GENERATE_REPORT:"api/student/generateReport",
 };
 

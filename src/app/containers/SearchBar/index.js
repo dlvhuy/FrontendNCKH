@@ -125,7 +125,7 @@ function SearchBar(props) {
                 span: 24,
               }}
             >
-              <DatePicker format="DD-MM-YYYY" locale={locale} className="w-full" placeholder={data.label} />
+              <DatePicker format="DD-MM-YYYY" locale={location} className="w-full" placeholder={data.label} />
             </Form.Item>
           </Col>
         );
