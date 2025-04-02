@@ -205,6 +205,9 @@ export const TOAST_MESSAGE = {
     CREATE_NEW: "Thêm mới văn bằng thành công",
     EDIT: "Sửa văn bằng thành công",
     REMOVE: "Xoá bằng thành công",
+    SIGN:"Ký văn bằng thành công",
+    APPROVE:"Xét duyệt văn bằng thành công",
+    REJECT:"Từ chối xét duyệt văn bằng thành công",
   },
   ORG: {
     CREATE_NEW: "Thêm mới đơn vị thành công",
@@ -479,6 +482,8 @@ export const CONSTANT_MESSAGE = {
   REMOVE: "Nếu bạn thao tác xoá dẫn đến các thông tin không còn hiển thị. Bạn có chắc chắn muốn xoá thông tin này?",
   CONFIM: "Bạn có chắc chắn muốn xác nhận {0} không ?",
 };
+
+
 export const YEU_CAU_TACH_VAN_HANH = {
   CO: { code: "CO", label: "Có" },
   KHONG: { code: "KHONG", label: "Không" },

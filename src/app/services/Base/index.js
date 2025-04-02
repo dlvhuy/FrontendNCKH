@@ -257,6 +257,19 @@ export function updateBaseFormatID(api, id, data, loading = true) {
     });
 }
 
+export function updatepatchBaseFormatID(api, id, data, loading = true) {
+  const config = { loading };
+  return axios
+    .patch(api.format(id), convertCamelCaseToSnakeCase(data), config)
+    .then((response) => {
+      if (response.status === 200) return convertSnakeCaseToCamelCase(response?.data);
+      return null;
+    })
+    .catch((err) => {
+      renderMessageError(err);
+      return null;
+    });
+  }
 export function deleteByIdBase(api, id, loading = true) {
   const config = { loading };
   return axios

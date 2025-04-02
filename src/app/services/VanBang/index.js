@@ -1,5 +1,5 @@
 import { API } from "@api";
-import { createBase, deleteByIdBase, getSimple, updateBaseFormatID } from "../Base";
+import { createBase, deleteByIdBase, getSimple, updateBaseFormatID, updatepatchBaseFormatID } from "../Base";
 
 export function getAllDegree(page, limit, query) {
   return getSimple(API.GET_ALL_DEGREE, page, limit, query);
@@ -14,8 +14,8 @@ export function deleteDegree(id) {
   return deleteByIdBase(API.DELETE_DEGREE, id);
 }
 export function AppproveDegree(id) {
-  return updateBaseFormatID(API.APPROVAL_DEGREE, id);
+  return updatepatchBaseFormatID(API.APPROVAL_DEGREE, id);
 }
 export function SignDegree(id) {
-  return updateBaseFormatID(API.SIGN_DEGREE, id);
+  return updatepatchBaseFormatID(API.SIGN_DEGREE, id);
 }

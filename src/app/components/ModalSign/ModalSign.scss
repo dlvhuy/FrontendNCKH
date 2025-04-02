@@ -1,0 +1,56 @@
+.delete-confim-children {
+    font-family: "NotoSans-Regular";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 3% 5%;
+    .delete-confim-title {
+      font-family: "NotoSans-Bold";
+      font-size: 18px;
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+    .delete-confim-body {
+      text-align: center;
+      font-size: 14px;
+      line-height: 21px;
+    }
+    .delete-confim-btn{
+      margin-top: 20px;
+      width: 100%;
+    }
+    .format-btn{
+        display: flex;
+        gap: 10px;
+    }
+    
+    .delete-confim-btnConfim{
+      width: 100%;
+      background-color: #ffefef !important;
+      color: red !important;
+      border: 0 !important;
+      padding: 0 17px !important;
+    }
+    .sign-confirm-btnConfirm{
+        width: 100%;
+        background-color: gray !important;
+        color: white !important;
+        border: 0 !important;
+        padding: 0 17px !important;
+    }
+    .property{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+    .property-body {
+        display: flex;
+    }
+    .property-body span {
+        font-weight: bold;
+        font-size: 15px;
+    }
+  }
+  
+  

@@ -79,12 +79,6 @@ export const ADMIN_ROUTES = [
         component: QuanLyNguoiDung,
         permission: [ROLE_SYSTEM.ADMIN],
       },
-      {
-        path: URL.MENU.KHOI_PHUC_TAI_KHOAN,
-        menuName: "Khôi phục tài khoản",
-        component: KhoiPhucTaiKhoan,
-        permission: [ROLE_SYSTEM.ADMIN],
-      },
     ],
   }, {
     key: URL.MENU.QUAN_LY_VAN_BANG,

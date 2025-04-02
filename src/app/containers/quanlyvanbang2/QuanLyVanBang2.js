@@ -15,7 +15,8 @@ import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import DialogDeleteConfim from "@components/DialogDeleteConfim/DialogDeleteConfim";
 import ThemMoiNguoiDung from "./ThemMoiVanBang";
 import { deleteUser, getAllUser } from "@app/services/NguoiDung";
-import { deleteDegree, getAllDegree } from "@app/services/VanBang";
+import { AppproveDegree, deleteDegree, getAllDegree } from "@app/services/VanBang";
+import ModalSign from "@components/ModalSign";
 QuanLyVanBang.propTypes = {};
 
 function QuanLyVanBang({ isLoading, ...props }) {
@@ -26,7 +27,8 @@ function QuanLyVanBang({ isLoading, ...props }) {
   const [data, setData] = useState(null);
   const [visibleDialog, setVisibleDialog] = useState(false);
   const [dataDialog, setDataDialog] = useState(null);
-  const [visibleXoa, setVisibleXoa] = useState(false);
+  const [visibleSign, setVisibleSign] = useState(false);
+  const [visibleApprove, setVisibleApprove] = useState(false);
   const [dataXoa, setDataXoa] = useState(null);
   useEffect(() => {
     getDataFilter();
@@ -50,7 +52,7 @@ function QuanLyVanBang({ isLoading, ...props }) {
       setPage(apiResponse.page);
       setTotalDocs(apiResponse.totalDocs);
     }
-  };
+  }; 
   const handleRefresh = (newQuery, changeTable) => {
     const { pathname } = location;
     let objFilterTable = { page, limit };
@@ -65,13 +67,26 @@ function QuanLyVanBang({ isLoading, ...props }) {
     newQuery = Object.assign(objFilterTable, newQuery);
     history.push({ pathname, search: stringify({ ...newQuery }, { arrayFormat: "repeat" }) });
   };
-  const showDialog = () => {
-    setVisibleDialog(true);
-  };
-  const closeDialog = () => {
-    setDataDialog(null);
-    setVisibleDialog(false);
-  };
+   const handleSign = async () => {
+      if (dataDialog) {
+        const response = await SignDegree(dataDialog._id);
+        if (response) {
+          toast(CONSTANTS.SUCCESS, TOAST_MESSAGE.DEGREE.SIGN);
+          cancelSign();
+          getDataFilter();
+        }
+      }
+    };
+    const handleApprove = async () => {
+      if (dataDialog) {
+        const response = await AppproveDegree(dataDialog._id);
+        if (response) {
+          toast(CONSTANTS.SUCCESS, TOAST_MESSAGE.DEGREE.APPROVE);
+          cancelApprove();
+          getDataFilter();
+        }
+      }
+    };
   const dataSearch = [
     {
       name: "approvalStatus",
@@ -132,7 +147,7 @@ function QuanLyVanBang({ isLoading, ...props }) {
                 type="primary"
                 className="mr-1"
                 style={{ backgroundColor: "#FF811E", borderColor: "#FF811E" }}
-                onClick={() => ApprovalDegree(value)}
+                onClick={() => showDialogApprove(value)}
               ></Button>
             </Tooltip>
             <Tooltip placement="right" title="Ký văn bằng" color="#FF0000">
@@ -142,7 +157,7 @@ function QuanLyVanBang({ isLoading, ...props }) {
                 style={{ backgroundColor: "#FF0000" }}
                 size="small"
                 className="mr-1"
-                onClick={() => SignDegree(value)}
+                onClick={() => showDialogSign(value)}
               />
             </Tooltip>
           </div>
@@ -150,31 +165,22 @@ function QuanLyVanBang({ isLoading, ...props }) {
       },
     },
   ];
-  const ApprovalDegree = () => {
-    setDataDialog(null);
-    showDialog();
-  };
-  const SignDegree = (data) => {
+ 
+  const showDialogSign = (data) => {
     setDataDialog(data);
-    showDialog();
+    setVisibleSign(true);
   };
-  const showDialogXoa = (data) => {
-    setDataXoa(data);
-    setVisibleXoa(true);
-  };
-  const cancelXoa = () => {
+  const cancelSign = () => {
     setDataXoa(null);
-    setVisibleXoa(false);
+    setVisibleSign(false);
   };
-  const handleRemove = async () => {
-    if (dataXoa) {
-      const response = await deleteDegree(dataXoa._id);
-      if (response) {
-        toast(CONSTANTS.SUCCESS, TOAST_MESSAGE.USER.REMOVE);
-        cancelXoa();
-        getDataFilter();
-      }
-    }
+  const showDialogApprove = (data) => {
+    setDataDialog(data);
+    setVisibleApprove(true);
+  };
+  const cancelApprove = () => {
+    setDataXoa(null);
+    setVisibleApprove(false);
   };
   return (
     <>
@@ -210,13 +216,8 @@ function QuanLyVanBang({ isLoading, ...props }) {
           </div>
         </Loading>
       </BaseContent>
-      <ThemMoiNguoiDung
-        visible={visibleDialog}
-        onCancel={closeDialog}
-        data={dataDialog}
-        reloadAPI={getDataFilter}
-      />
-      <DialogDeleteConfim visible={visibleXoa} onCancel={cancelXoa} onOK={handleRemove} />
+      <ModalSign visible={visibleApprove} onCancel={cancelApprove}  isApprove={true} data={dataDialog} onOK={handleApprove}/>
+      <ModalSign visible={visibleSign} onCancel={cancelSign} isApprove={false} data={dataDialog} onOK={handleSign}/>
     </>
   );
 }

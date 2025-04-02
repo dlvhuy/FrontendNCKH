@@ -204,7 +204,7 @@ function QuanLyVanBang({ isLoading, ...props }) {
                 data={dataDialog}
                 reloadAPI={getDataFilter}
             />
-            <DialogDeleteConfim visible={visibleXoa} onCancel={cancelXoa} onOK={handleRemove} />
+            <DialogSign visible={visibleXoa} onCancel={cancelXoa} onOK={handleRemove} />
         </>
     );
 }
