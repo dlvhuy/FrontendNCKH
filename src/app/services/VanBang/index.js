@@ -1,5 +1,5 @@
 import { API } from "@api";
-import { createBase, deleteByIdBase, getSimple, getSSimple, updateBaseFormatID, updatepatchBaseFormatID } from "../Base";
+import { createBase, deleteByIdBase, getSimple, getSimpleXacnhan, getSSimple, updateBaseFormatID, updatepatchBaseFormatID } from "../Base";
 
 export function getAllDegree(page, limit, query) {
   return getSimple(API.GET_ALL_DEGREE, page, limit, query);
@@ -21,4 +21,7 @@ export function SignDegree(id) {
 }
 export function getDegree(query){
   return getSSimple(API.SEARCH_DEGREE,query)
+}
+export function getDegreeXacnhan(id){
+  return getSimpleXacnhan(API.XAC_NHAN,id)
 }

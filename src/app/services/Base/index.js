@@ -319,6 +319,18 @@ export function getSimple(api, page, limit, query = "") {
       return null;
     });
 }
+api.format(id)
+
+export function getSimpleXacnhan(api,id) {
+  return axios
+    .get(`${api.format(id)}`)
+    .then((res) => {
+      return convertSnakeCaseToCamelCase(res?.data);
+    })
+    .catch((error) => {
+      return null;
+    });
+}
 
 export function getSSimple(api, query) {
   return axios

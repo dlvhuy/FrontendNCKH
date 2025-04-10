@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./SearchDegree.scss"
 import AuthBase from "@containers/Authenticator/AuthBase";
 import { Button, Form, Input } from "antd";
-import { getDegree } from "@app/services/VanBang";
+import { getDegree, getDegreeXacnhan } from "@app/services/VanBang";
 import { connect } from "react-redux";
 import { valueToMajor, valueToNameClassification } from "@app/common/dataConverter";
 import { toast, ToastContainer } from "react-toastify";
@@ -22,6 +22,15 @@ function SearchDegree({ isLoading }) {
             console.log("hehe ", values)
             const response = await getDegree(values);
             setData(response);
+        } catch (error) {
+            console.error("Lỗi khi lấy dữ liệu:", error);
+        }
+    }
+
+    async function handleGetDegreeXacMinh(id) {
+        try { // Lấy dữ liệu từ form
+            const response = await getDegreeXacnhan(id);
+            console.log(response)
         } catch (error) {
             console.error("Lỗi khi lấy dữ liệu:", error);
         }
@@ -77,12 +86,12 @@ function SearchDegree({ isLoading }) {
                             </div>
                         </div>
                         <div className="container">
-                    
                             <div className="text-info">
                                 <span className="text-label">Trạng thái văn bằng: </span>
                                 <span className="text-data">{data.degree.approvalStatus}</span>
                             </div>
                         </div>
+                        <Button onClick={() => handleGetDegreeXacMinh(data.degree._id)}></Button>
                     </div>
                 </div>
             }
