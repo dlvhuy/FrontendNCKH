@@ -48,11 +48,12 @@ function QuanLyVanBang({ isLoading, ...props }) {
     if (apiResponse) {
       const dataRes = apiResponse.data.docs;
       setData(dataRes);
-      setLimit(apiResponse.limit);
-      setPage(apiResponse.page);
-      setTotalDocs(apiResponse.totalDocs);
+      setLimit(apiResponse.data.limit);
+      setPage(apiResponse.data.page);
+      setTotalDocs(apiResponse.data.totalDocs);
     }
   }; 
+
   const handleRefresh = (newQuery, changeTable) => {
     const { pathname } = location;
     let objFilterTable = { page, limit };
@@ -109,7 +110,6 @@ function QuanLyVanBang({ isLoading, ...props }) {
       label: "Lý do từ chối",
       type: "text",
     },
-
   ];
   const onChangeTable = (page) => {
     setLimit(page.pageSize);

@@ -32,7 +32,7 @@ export function setupAxios(axios, store) {
         } else {
           config.headers.Authorization = `${authToken}`;
         }
-      } else if (!authToken && ![API.LOGIN, API.USER_RESET_PASSWORD, API.USER_CHANGE_PASSWORD, API.USER_FORGET_PASSWORD, API.IOS_APP, API.ANDROID_APP].includes(config.url)) {
+      } else if (!authToken && ![API.LOGIN, API.USER_RESET_PASSWORD, API.USER_CHANGE_PASSWORD, API.USER_FORGET_PASSWORD, API.IOS_APP, API.ANDROID_APP,API.SEARCH_DEGREE].includes(config.url)) {
         forceLogout();
       }
 

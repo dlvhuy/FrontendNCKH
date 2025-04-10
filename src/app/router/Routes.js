@@ -16,11 +16,12 @@ function Routes({ token, myInfo, ...props }) {
   const { role } = myInfo;
   const CONSTANTS_ROUTES = ConstantsRoutes();
 
-  useEffect(() => {
-    if (!token) {
-      props.history.push(URL.LOGIN);
-    }
-  }, [token, props.history]);
+  // useEffect(() => {
+  //   if (!token) {
+  //     props.history.push(URL.SEARCH_DEGREE);
+  //     props.history.push(URL.LOGIN);
+  //   }
+  // }, [token, props.history]);
 
   function renderItem({ hide, path, children, component, permission, role, ...router }) {
     if (hide) return;

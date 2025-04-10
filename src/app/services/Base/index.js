@@ -319,6 +319,18 @@ export function getSimple(api, page, limit, query = "") {
       return null;
     });
 }
+
+export function getSSimple(api, query) {
+  return axios
+    .post(`${api}`,query)
+    .then((res) => {
+      return convertSnakeCaseToCamelCase(res?.data);
+    })
+    .catch((error) => {
+      return null;
+    });
+}
+
 export async function uploadImageArray(data, idForm) {
   let uploadPromises = data
     .filter((image) => image?.newUp === true)

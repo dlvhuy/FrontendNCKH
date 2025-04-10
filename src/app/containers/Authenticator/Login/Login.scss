@@ -1,5 +1,6 @@
 .login-container {
   background-color: #ffffff;
+
   .text-welcome {
     text-align: center;
     font-family: "Montserrat-Bold";
@@ -7,27 +8,33 @@
     font-size: 40px;
     color: #6b87e6;
   }
-  .text-welcome2{
+
+  .text-welcome2 {
     font-family: "Montserrat-Regular";
     margin-top: 20px;
     font-weight: 400;
     font-size: 20px;
     color: #767676;
   }
+
   display: flex;
   flex-direction: row;
+
   .login-left {
     width: 40%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+
     @media screen and(max-width: 1000px) {
       display: none;
     }
   }
+
   .login-right {
     width: 60%;
     padding: 0 8%;
+
     @media screen and(max-width: 1000px) {
       width: 100%;
       padding: 0;
@@ -35,14 +42,35 @@
 
     display: flex;
     flex-direction: column;
+
+    .text-link {
+      display: flex;
+      gap: 20px;
+      align-items: center ;
+      justify-content: center;
+
+    }
+    .link {
+      text-align: center;
+      font-family: "Montserrat-Bold";
+      font-weight: 200;
+      font-size: 20px;
+      color: #6b87e6;
+      text-align: end;
+      margin-top: 10px;
+    }
+
   }
+
   .form-center {
     margin-top: 10vh;
   }
+
   .txt_input {
     border-radius: 5px;
     border: 4px solid #6b87e6;
   }
+
   .btn_signin {
     border-radius: 5px !important;
     background: #6b87e6;
@@ -51,4 +79,3 @@
     font-size: 40px;
   }
 }
-

@@ -1,7 +1,7 @@
 import { camelCase, snakeCase } from 'lodash';
 import moment from 'moment';
 import { cloneObj } from '@app/common/functionCommons';
-import { GRADUATION_CLASSIFICATION } from '@constants';
+import { Education_SYSTEM2, GRADUATION_CLASSIFICATION, UNIVERSITY_MAJOR_SYSTEM } from '@constants';
 
 export function extractIds(listData) {
   return listData?.map(element => element._id);
@@ -32,6 +32,14 @@ export function gpaConvertToClassification(gpa) {
   } else {
     return GRADUATION_CLASSIFICATION.find(c => c.value === "Weak");
   }
+}
+
+export function valueToNameClassification(value) {
+  return GRADUATION_CLASSIFICATION.find(c => c.value === value);
+}
+
+export function valueToMajor(value) {
+  return UNIVERSITY_MAJOR_SYSTEM.find(c => c.value === value);
 }
 
 export function sortThuTu(a, b) {

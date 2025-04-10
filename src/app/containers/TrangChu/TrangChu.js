@@ -23,11 +23,9 @@ function TrangChu({ isLoading, ...props }) {
               </Col>
               <Col xs={24} sm={19}>
                 <div className="top_intro_content">
-                  <Typography.Title level={2}>CÔNG NGHỆ BLOCK CHAIN</Typography.Title>
+                  <Typography.Title level={2}>QUẢN LÝ VĂN BẰNG CHỨNG CHỈ BẰNG BLOCKCHAIN</Typography.Title>
                   <Typography.Paragraph>
-                    Chào mừng bạn đến với land use paper management - Nền tảng Truy Xuất, Cấp Mới, và Chuyển Nhượng Đất
-                    hiện đại và độc đáo. Chúng tôi tự hào giới thiệu một cách tiếp cận sáng tạo và đột phá trong việc
-                    quản lý, cấp mới và chuyển nhượng đất thông qua sự kết hợp của React JS và công nghệ Blockchain.{" "}
+                  Chào mừng bạn đến với hệ thống quản lý văn bằng chứng chỉ của Trường Đại học Hồng Đức. Đây là nền tảng hiện đại áp dụng công nghệ Blockchain - Hyperledger Fabric để đảm bảo tính minh bạch, bảo mật và khả năng xác thực thông tin chính xác..{" "}
                   </Typography.Paragraph>
                   <Button type="primary">
                     <a href="https://aws.amazon.com/vi/what-is/blockchain/?aws-products-all.sort-by=item.additionalFields.productNameLowercase&aws-products-all.sort-order=asc">
@@ -44,11 +42,9 @@ function TrangChu({ isLoading, ...props }) {
               <Col xs={24} sm={12}>
                 <div className="grid_item">
                   <Image className="ilus_img_2" src={myImage_2} alt="Hình ảnh" />
-                  <Typography.Title level={3}>DỄ DÀNG, NHANH CHÓNG, TRUY XUẤT THÔNG TIN</Typography.Title>
+                  <Typography.Title level={3}>TRA CỨU NHANH CHÓNG, CHÍNH XÁC</Typography.Title>
                   <Typography.Paragraph>
-                    Giao diện người dùng thân thiện của chúng tôi giúp bạn dễ dàng thực hiện các giao dịch liên quan đến
-                    đất đai chỉ trong vài bước đơn giản, truy cập thông tin và thực hiện giao dịch từ bất kỳ đâu, bất kỳ
-                    lúc nào.
+                  Sinh viên, nhà tuyển dụng và các tổ chức có thể dễ dàng truy xuất thông tin văn bằng, chứng chỉ một cách nhanh chóng và chính xác. Hệ thống đảm bảo dữ liệu không thể bị giả mạo, nâng cao uy tín của Trường Đại học Hồng Đức.
                   </Typography.Paragraph>
                   <Button type="primary">Đọc thêm</Button>
                 </div>
@@ -58,9 +54,8 @@ function TrangChu({ isLoading, ...props }) {
                   <Image className="ilus_img_2" src={myImage_3} alt="Hình ảnh" />
                   <Typography.Title level={3}>NỀN TẢNG CUNG CẤP CHO BẠN NHỮNG TÍNH NĂNG GÌ ?</Typography.Title>
                   <Typography.Paragraph>
-                    Cho phép bạn truy cập thông tin và thực hiện giao dịch từ bất kỳ đâu, bất kỳ lúc nào, Thực hiện các
-                    giao dịch cấp mới và chuyển nhượng đất đai một cách dễ dàng, Xem lịch sử giao dịch và cấp mới để đảm
-                    bảo tính minh bạch và tuân thủ quy định pháp luật.{" "}
+                  - Cấp phát văn bằng chứng chỉ điện tử với xác thực Blockchain.
+                  - Kiểm tra và xác thực tính hợp lệ của chứng chỉ dễ dàng.
                   </Typography.Paragraph>
                   <Button type="primary">Đọc thêm</Button>
                 </div>
@@ -78,14 +73,13 @@ function TrangChu({ isLoading, ...props }) {
                       <div className="top_intro_content">
                         <Typography.Title level={2}>Liên Hệ Với Chúng Tôi</Typography.Title>
                         <Typography.Paragraph>
-                          Hãy đồng hành cùng chúng tôi trong hành trình hiện đại hóa quản lý tài sản đất đai. Nếu bạn có
-                          bất kỳ câu hỏi hoặc cần hỗ trợ, đừng ngần ngại liên hệ với chúng tôi tại{" "}
-                          <a href="Tel:0859734136">xxx</a> hoặc qua{" "}
-                          <a href="mailto: trinhsytuan@gmail.com">trinhsytuan@gmail.com</a>. Chúng tôi luôn sẵn sàng để
+                        Nếu bạn có bất kỳ câu hỏi hoặc cần hỗ trợ, vui lòng liên hệ với chúng tôi tại{" "}
+                          <a href="Tel:0971467770">xxx</a> hoặc qua{" "}
+                          <a href="mailto: vanhuy098420@gmail.com">vanhuy098420@gmail.com</a>. Chúng tôi luôn sẵn sàng để
                           hỗ trợ bạn.{" "}
                         </Typography.Paragraph>
                         <Button type="primary">
-                          <a href="mailto: trinhsytuan@gmail.com">Liên hệ mail</a>
+                          <a href="mailto: vanhuy098420@gmail.com">Liên hệ mail</a>
                         </Button>
                       </div>
                     </Col>

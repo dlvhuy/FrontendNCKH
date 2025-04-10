@@ -19,6 +19,7 @@ export function login(data) {
 
 
 
+
 export function getUserByToken() {
   return axios.get(API.MY_INFO)
     .then(response => {

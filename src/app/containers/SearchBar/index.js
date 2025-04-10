@@ -217,13 +217,15 @@ function SearchBar(props) {
                   <Button icon={<SearchOutlined style={{ fontSize: 14 }} />} type="primary" htmlType="submit">
                     Tìm kiếm
                   </Button>
+                  {props.isFilter && 
                   <Button
-                    className="btn_clearFilter"
-                    style={{ backgroundColor: "#FFE9D8", borderColor: "#FFE9D8", color: "#FF5C00" }}
-                    onClick={handleReset}
+                  className="btn_clearFilter"
+                  style={{ backgroundColor: "#FFE9D8", borderColor: "#FFE9D8", color: "#FF5C00" }}
+                  onClick={handleReset}
                   >
                     Bỏ lọc
                   </Button>
+                  }
                 </Col>
               </Row>
             </Form>

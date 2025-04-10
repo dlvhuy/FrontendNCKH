@@ -52,6 +52,7 @@ export const API = {
   GET_DEGREE:"/api/degree/{0}",
   APPROVAL_DEGREE:"api/degree/approveStudent/{0}",
   SIGN_DEGREE:"api/degree/sign/{0}",
+  SEARCH_DEGREE:"api/degree/getDegree",
 
   GET_STUDENTS:"api/student/getStudentPagination?page={0}&limit={1}{2}",
   GET_STUDENT:"api/student/{0}",

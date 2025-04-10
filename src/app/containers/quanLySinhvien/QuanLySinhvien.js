@@ -51,9 +51,9 @@ function QuanLySinhVien({ isLoading, ...props }) {
       const dataRes = apiResponse.data.docs;
       console.log(dataRes)
       setData(dataRes);
-      setLimit(apiResponse.limit);
-      setPage(apiResponse.page);
-      setTotalDocs(apiResponse.totalDocs);
+      setLimit(apiResponse.data.limit);
+      setPage(apiResponse.data.page);
+      setTotalDocs(apiResponse.data.totalDocs);
     }
   };
   const handleRefresh = (newQuery, changeTable) => {
@@ -116,6 +116,13 @@ function QuanLySinhVien({ isLoading, ...props }) {
     setPage(page.current);
   };
   const ColumnNguoiDung = [
+    {
+      title: "STT",
+      render: (v1, v2, value) => formatSTT(limit, page, value),
+      key: "STT",
+      align: "center",
+      width: 60,
+    },
     { title: "Tên sinh viên", dataIndex: "name", key: "name" },
     { title: "Mã sinh viên", dataIndex: "_id", key: "_id" },
     { title: "Chuyên ngành", dataIndex: "major", key: "major" },
@@ -189,12 +196,12 @@ function QuanLySinhVien({ isLoading, ...props }) {
         <Loading active={isLoading}>
           <div className="QuanLyNguoiDung-container">
             <div className="QuanLyNguoiDung-header">
-              <div className="QuanLyNguoiDung-title">Danh sách người dùng</div>
+              <div className="QuanLyNguoiDung-title">Danh sách sinh viên</div>
               <SearchBar
                 dataSearch={dataSearch}
                 onFilterChange={handleRefresh}
                 buttonHeader={true}
-                labelButtonHeader={"Thêm người dùng"}
+                labelButtonHeader={"Thêm sinh viên"}
                 handleBtnHeader={handleThemMoiSinhVien}
               />
             </div>
@@ -223,7 +230,7 @@ function QuanLySinhVien({ isLoading, ...props }) {
       <ThemMoiSinhVien
         visible={visibleDialog}
         onCancel={closeDialog}
-        data={dataDialog} 
+        data={dataDialog}
         reloadAPI={getDataFilter}
       />
       <DialogDeleteConfim visible={visibleXoa} onCancel={cancelXoa} onOK={handleRemove} />

@@ -26,6 +26,7 @@ export const URL = {
     TRUY_XUAT_KHU_DAT: "/truy-xuat-khu-dat",
     TRUY_XUAT_GIAY_TO: "/truy-xuat-khu-dat",
   },
+  SEARCH_DEGREE:"/tra-cuu-van-bang",
   THEM_MOI_GIAY_TO_ID: "/chi-tiet-giay-to/{0}",
   THEM_MOI_GIAY_TO: "/them-moi-giay-to",
   THONG_TIN_CA_NHAN: "/thong-tin-ca-nhan",

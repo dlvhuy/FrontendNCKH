@@ -9,11 +9,17 @@ import { RULES } from "@constants";
 import { URL } from "@url";
 import Logo from "@assets/images/icon/logoLogin.svg";
 import * as app from "@app/store/ducks/app.duck";
+import { useHistory } from "react-router-dom";
 
 function Login({ history, isLoading, ...props }) {
   const [form] = Form.useForm();
   function handleLogin(value) {
     props.login(value, history);
+  }
+  const history1 = useHistory();
+  function handleChangePage(){
+    history.push(URL.LOGIN);
+    console.log("dsadd  ")
   }
 
   return (
@@ -24,7 +30,10 @@ function Login({ history, isLoading, ...props }) {
           <img src={Logo} className="img_logo" />
         </div>
         <div className="login-right">
-          <span className="text-welcome">Đăng nhập</span>
+          <div className="text-link">
+            <span className="text-welcome">Đăng nhập</span>
+            <span className="link">Tra cứu</span>
+          </div>
           <span className="text-welcome2">Chào mừng bạn đến với hệ thống quản lý văn bằng chứng chỉ trường Đại học Hồng Đức, vui lòng đăng nhập để tiếp tục</span>
           <Form layout={"vertical"} className="form-center" size="large" form={form} onFinish={handleLogin}>
             <Form.Item name="username" rules={[{ required: true, message: "Tên đăng nhập không được để trống" }]}>
@@ -33,10 +42,11 @@ function Login({ history, isLoading, ...props }) {
             <Form.Item name="password" rules={[{ required: true, message: "Mật khẩu không được để trống" }]}>
               <Input.Password placeholder="Vui lòng nhập mật khẩu" className="txt_input" />
             </Form.Item>
-            <Button type="primary" htmlType="submit" className="btn_signin">
+          <Button type="primary" htmlType="submit" className="btn_signin">
               Đăng nhập
             </Button>
           </Form>
+          <Link to={URL.SEARCH_DEGREE} className="link">Tra cứu</Link>
         </div>
       </div>
     </AuthBase>
